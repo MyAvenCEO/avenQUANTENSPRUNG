@@ -1,0 +1,21 @@
+{
+  "name": "quantensprung",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Quantensprung – Landingpage für das Retreat „Die 7 Schlüssel zur Befreiung“",
+  "packageManager": "bun@1.4.0",
+  "scripts": {
+    "dev": "bunx --bun vite",
+    "build": "bunx --bun vite build",
+    "preview": "bunx --bun vite preview",
+    "promote": "sh scripts/promote.sh"
+  },
+  "devDependencies": {
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource/cormorant-garamond": "^5.3.0"
+  }
+}

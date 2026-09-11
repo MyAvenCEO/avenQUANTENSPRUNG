@@ -1,0 +1,64 @@
+name: Promote main → prod
+
+# Run from the Actions tab ("Run workflow" on main). Verifies the build of the
+# exact main commit, fast-forwards prod to it and triggers the deploy.
+#
+# Optional secret PROMOTE_TOKEN (fine-grained PAT: Contents + Workflows write):
+# GITHUB_TOKEN may not push commits that change .github/workflows/*. With the
+# PAT the push itself triggers deploy.yml; without it we dispatch the deploy.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: promote-prod
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    env:
+      HAS_PAT: ${{ secrets.PROMOTE_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PROMOTE_TOKEN || github.token }}
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+
+      - name: Verify build
+        run: |
+          bun install --frozen-lockfile
+          bun run build
+
+      - name: Fast-forward prod to ${{ github.sha }}
+        run: |
+          if git ls-remote --exit-code --heads origin prod >/dev/null; then
+            git fetch origin prod
+            if ! git merge-base --is-ancestor origin/prod "$GITHUB_SHA"; then
+              echo "::error::prod has commits that are not on main. Merge prod back into main first."
+              exit 1
+            fi
+            {
+              echo "### Promoted to prod"
+              echo '```'
+              git log --oneline "origin/prod..$GITHUB_SHA"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          git push origin "$GITHUB_SHA:refs/heads/prod"
+
+      # Pushes made with GITHUB_TOKEN don't trigger other workflows,
+      # but workflow_dispatch does.
+      - name: Trigger deploy
+        if: env.HAS_PAT != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref prod
