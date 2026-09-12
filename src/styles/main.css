@@ -161,6 +161,25 @@ strong {
   color: var(--violet);
 }
 
+/* E-Mail-Adressen stehen als Text da – kein mailto, das ein Mailprogramm öffnet */
+.mail {
+  color: var(--ink);
+  user-select: all;
+}
+
+.mail-big {
+  margin: 0;
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+  user-select: all;
+  white-space: nowrap;
+}
+
 /* ——— Buttons ——— */
 .btn {
   display: inline-flex;
