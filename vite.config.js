@@ -10,8 +10,11 @@ export default defineConfig({
     rolldownOptions: {
       input: {
         index: page('./index.html'),
+        retreat: page('./retreat.html'),
+        koerpertraining: page('./koerpertraining.html'),
         impressum: page('./impressum.html'),
         datenschutz: page('./datenschutz.html'),
+        widerruf: page('./widerruf.html'),
       },
     },
   },
