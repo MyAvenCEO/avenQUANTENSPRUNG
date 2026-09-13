@@ -80,7 +80,11 @@ h3 {
   text-wrap: balance;
 }
 
-h1 em,
+h1 em {
+  font-style: italic;
+  color: var(--c-bright);
+}
+
 h2 em {
   font-style: italic;
   color: var(--c);
@@ -237,6 +241,16 @@ strong {
   max-width: 20ch;
   margin-bottom: 1rem;
   font-size: clamp(2.1rem, 1.5rem + 2.6vw, 3.4rem);
+}
+
+.hero__cont {
+  display: inline-block;
+  margin-top: 0.2em;
+  font-size: 0.62em;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  letter-spacing: 0;
 }
 
 .hero__text {
