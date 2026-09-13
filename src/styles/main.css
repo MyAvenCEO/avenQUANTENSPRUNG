@@ -234,28 +234,54 @@ strong {
 
 /* ——— Startseite ——— */
 .hero {
-  padding: clamp(48px, 8vw, 96px) 0 clamp(28px, 4vw, 44px);
+  padding: clamp(64px, 10vw, 128px) 0 clamp(40px, 6vw, 64px);
+  text-align: center;
+}
+
+.hero .eyebrow {
+  margin-bottom: 1.3rem;
 }
 
 .hero h1 {
   max-width: 20ch;
-  margin-bottom: 1rem;
-  font-size: clamp(2.1rem, 1.5rem + 2.6vw, 3.4rem);
+  margin: 0 auto 1.2rem;
+  font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4.2rem);
+  line-height: 1.04;
 }
 
-.hero__cont {
-  display: inline-block;
-  margin-top: 0.2em;
-  font-size: 0.62em;
-  font-weight: 400;
+.hero__sub {
+  max-width: 30ch;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.05rem + 0.9vw, 1.75rem);
   font-style: italic;
-  color: var(--muted);
-  letter-spacing: 0;
+  font-variation-settings: 'SOFT' 100;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.hero__rule {
+  width: 64px;
+  height: 3px;
+  margin: clamp(26px, 4vw, 40px) auto;
+  border: 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--violet), var(--teal) 50%, var(--gold));
 }
 
 .hero__text {
-  max-width: 58ch;
-  margin-top: 1.2rem;
+  max-width: 70ch;
+  margin: 0 auto;
+  columns: 2;
+  column-gap: clamp(28px, 4vw, 52px);
+  text-align: left;
+  text-wrap: pretty;
+}
+
+@media (max-width: 700px) {
+  .hero__text {
+    columns: 1;
+  }
 }
 
 .points {
