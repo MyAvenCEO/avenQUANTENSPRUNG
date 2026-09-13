@@ -7,6 +7,7 @@
       "dependencies": {
         "@fontsource-variable/dm-sans": "^5.3.0",
         "@fontsource-variable/fraunces": "^5.3.0",
+        "@fontsource/patrick-hand": "^5.3.0",
       },
       "devDependencies": {
         "vite": "^8.3.0",
@@ -17,6 +18,8 @@
     "@fontsource-variable/dm-sans": ["@fontsource-variable/dm-sans@5.3.0", "", {}, "sha512-BpUG5bqePiDFMBM4ZtLSlPdAIOM990uB1dlXzIf4aw21yQR7BmykedLXXXMqGWsR18aMLOsbWccwJNh3ztTQaA=="],
 
     "@fontsource-variable/fraunces": ["@fontsource-variable/fraunces@5.3.0", "", {}, "sha512-9BYGySn4AHEJdgp9Z28tQ3X+laJMEOITXkQarZXeloWQZDq5oOvXJ3kDA8c7MGIfpogIaZfjrQBqmda8POOCKA=="],
+
+    "@fontsource/patrick-hand": ["@fontsource/patrick-hand@5.3.0", "", {}, "sha512-V8C38IlIFfdWg0Xtri3F7sLCVpm069rUwn6w4n+oyn38gt7H4arOJmuReg3tAw1Q6jHqZp89wTnAAJagq4Atxw=="],
 
     "@oxc-project/types": ["@oxc-project/types@0.149.0", "", {}, "sha512-Efcc+iF0j3Bf67YjEqIqWXbX5XddXoK/Mw4K1/JuXwRCZ8N16VR7iT23nlCc9XrveFVh/E5Rqs2StT0V8v9LdA=="],
 
