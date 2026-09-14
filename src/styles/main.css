@@ -141,9 +141,8 @@ strong {
   padding-block: clamp(18px, 2.4vw, 28px);
 }
 
-/* Kontakt bzw. Zurück-Link bleibt rechts, der Schriftzug steht mittig */
-.site-header__inner > .link,
-.site-header__inner > .mail {
+/* Der Zurück-Link bleibt rechts, der Schriftzug steht mittig */
+.site-header__inner > .link {
   position: absolute;
   top: 50%;
   right: 0;
@@ -771,11 +770,6 @@ strong {
 }
 
 @media (max-width: 620px) {
-  /* Kopfzeile: die Adresse steht ohnehin im Kontakt-Kasten und in der Fußzeile */
-  .site-header__inner > .mail {
-    display: none;
-  }
-
   .brand__mark {
     height: 56px;
   }
