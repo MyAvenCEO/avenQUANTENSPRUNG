@@ -157,6 +157,19 @@ strong {
   height: 46px;
 }
 
+.brand__word {
+  width: auto;
+  height: clamp(22px, 1.4rem + 0.6vw, 30px);
+}
+
+.brand__suffix {
+  align-self: flex-end;
+  padding-bottom: 0.15em;
+  font-family: var(--font-brand);
+  font-size: 0.72em;
+  color: var(--teal-ink);
+}
+
 .link {
   font-size: 0.92rem;
   color: var(--muted);
@@ -758,12 +771,12 @@ strong {
     display: none;
   }
 
-  .brand {
-    font-size: 1.15rem;
-  }
-
   .brand__mark {
     height: 38px;
+  }
+
+  .brand__word {
+    height: 20px;
   }
 }
 
